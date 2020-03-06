@@ -45,6 +45,7 @@ server {
     index index.php index.html;
     server_name dft.local.com;
     root /etc/nginx/vhosts/php;
+    client_max_body_size 20M;
 
     location ~ \.php$ {
         try_files $uri =404;
@@ -71,7 +72,7 @@ docker exec -it php-fpm apt-get update -y
 docker exec -it php-fpm apt-get install lame php-common ucf php7.4-common libgd3 -y
 ``` -->
 
-Recargar nginx 
+Recargar nginx
 
 ```sh
 docker exec -it nginx nginx -s reload
